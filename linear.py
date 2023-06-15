@@ -47,7 +47,7 @@ if choice == 'Mục tiêu của mô hình':
     ###### Mô hình được xây dựng để dự báo giá trị hạn mức thẻ tín dụng/thấu chi dựa trên các biến đặc điểm của Khách hàng.
     """)  
     st.write("""###### Mô hình sử dụng thuật toán LinearRegression""")
-    #st.image("Agribank.png")
+    st.image("Argibank.png")
     st.image("LSM.png")
     st.image("LSM_1.jpg")
 
