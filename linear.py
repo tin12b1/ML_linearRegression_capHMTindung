@@ -10,7 +10,7 @@ import streamlit as st
 df = pd.read_csv("credit access.csv", encoding='latin-1')
 
 st.title("Hồi quy tuyến tính")
-st.write("## Dự báo giá trị vay vốn của nông hộ")
+st.write("## Dự báo giá trị hạn mức tín dụng được cấp cho Khách hàng")
 
 uploaded_file = st.file_uploader("Choose a file", type=['csv'])
 if uploaded_file is not None:
@@ -44,11 +44,11 @@ choice = st.sidebar.selectbox('Danh mục tính năng', menu)
 if choice == 'Mục tiêu của mô hình':    
     st.subheader("Mục tiêu của mô hình")
     st.write("""
-    ###### Mô hình được xây dựng để dự báo giá trị vay vốn của nông hộ dựa trên các biến đặc điểm chủ hộ, điều kiện của nông hộ.
+    ###### Mô hình được xây dựng để dự báo giá trị hạn mức thẻ tín dụng/thấu chi dựa trên các biến đặc điểm của Khách hàng.
     """)  
     st.write("""###### Mô hình sử dụng thuật toán LinearRegression""")
     st.image("LSM.png")
-    st.image("LSM_1.png")
+    st.image("LSM_1.jpg")
 
 elif choice == 'Xây dựng mô hình':
     st.subheader("Xây dựng mô hình")
@@ -85,17 +85,17 @@ elif choice == 'Sử dụng mô hình để dự báo':
             flag = True       
     if type=="Input":        
         git = st.number_input('Insert giatri')
-        DT = st.number_input('Insert DT')
-        TN = st.number_input('Insert TN')
-        SPT = st.number_input('Insert SPT')
-        GTC = st.number_input('Insert GTC')
-        GD = st.number_input('Insert GD')
-        TCH = st.number_input('Insert TCH')
-        GT = st.number_input('Insert GT')
-        DV = st.number_input('Insert DV')
-        VPCT = st.number_input('Insert VPCT')
-        LS = st.number_input('Insert LS')
-        lines={'giatri':[git],'DT':[DT],'TN':[TN],'SPT':[SPT],'GTC':[GTC],'GD':[GD],'TCH':[TCH],'GT':[GT],'DV':[DV],'VPCT':[VPCT],'LS':[LS]}
+        TT = st.number_input('Insert số lần mua hàng trực tuyến trong tháng')
+        TN = st.number_input('Insert thu nhập hàng tháng')
+        EP = st.number_input('Insert giá trị mua hàng điện tử trong tháng')
+        HP = st.number_input('Insert giá trị mua hàng gia dụng trong tháng')
+        BP = st.number_input('Insert giá trị mua hàng mẹ/bé trong tháng')
+        DT = st.number_input('Insert tuổi KH')
+        GT = st.number_input('Insert giới tính')
+        TS = st.number_input('Insert khách hàng có thanh toán quốc tế hay không')
+        AB = st.number_input('Insert số dư trung bình của TKTT')
+        LS = st.number_input('Insert lịch sử nợ xấu')
+        lines={'giatri':[git],'TT':[TT],'TN':[TN],'EP':[EP],'HP':[HP],'BP':[BP],'DT':[DT],'GT':[GT],'TS':[TS],'AB':[AB],'LS':[LS]}
         lines=pd.DataFrame(lines)
         st.dataframe(lines)
         flag = True
